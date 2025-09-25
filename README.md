@@ -1,7 +1,7 @@
 # Quantifying Anisotropic Impacts of LCZ Landscape Patterns on NO2 Variabilities in the Yangtze River Delta, China
 
 This repository contains the data and code accompanying the research: Quantifying Anisotropic Impacts of LCZ Landscape Patterns on NO2 Variabilities in the Yangtze River Delta, China
-
+##
 ## Methodology Overview
 The framework integrates:
 
@@ -70,8 +70,19 @@ The net influence in different directions for each station is calculated based o
 **Figure 7**: ADWSIZ Influence and Raster File Results
 
 ## Data
-1.**NO2 Data**： Annual means from 179 stations (2024), sourced from [China National Environmental Monitoring Center]([url](https://www.cnemc.cn)). File Path: 'data/station.csv'
-2.**Local Climate Zone (LCZ) Classification**: High-accuracy LCZ maps (30 m spatial resolution) of the YRD urban agglomeration were derived from Landsat-8 OLI imagery. Source: Landsat-8 OLI, available from the U.S. Geological Survey (USGS).Access Point: [Google Earth Engine (GEE)](https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C02_T1_L2)
+1.**NO2 Data and landscape_metrics **: Annual means from 179 stations (2024), sourced from [China National Environmental Monitoring Center]((https://www.cnemc.cn)). After calculating the landscape pattern indices via raster clipping, they were merged into the station file[File Path: `data/station.shp`](data/station.shp)
+
+2.**Landsat-8**:  Landsat-8 OLI, available from the U.S. Geological Survey (USGS), sourced from [Google Earth Engine (GEE)](https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C02_T1_L2)
+
+3.**Local Climate Zone (LCZ) Classification**: High-accuracy LCZ maps (30 m spatial resolution) of the YRD urban agglomeration were derived from Landsat-8 OLI imagery. File:[LCZ_yrd_30m.tif](https://drive.google.com/file/d/11588PKhp9D6a_Wma4iC9Tq2nytvb13We/view?usp=sharing)
+
+
+
+## GEE App Link
+
+We have published a public Google Earth Engine (GEE) app that serves as an interactive demonstration of our findings. This tool allows you to visually compare the LCZ results of the **4000 m circular influence zone model** with our proposed **Adaptive Directionally Weighted Sector Influence Zone (ADWSIZ) model**. 
+
+**Interactive App**: [Click here to launch the GEE App]((https://ee-l2892786691.projects.earthengine.app/view/adwsiz-vs-circle))
 
 ## Source Code
 The source code for the above functionalities is provided below, organized by section.
