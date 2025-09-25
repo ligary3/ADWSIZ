@@ -82,7 +82,7 @@ The net influence in different directions for each station is calculated based o
 
 We have published a public Google Earth Engine (GEE) app that serves as an interactive demonstration of our findings. This tool allows you to visually compare the LCZ results of the **4000 m circular influence zone model** with our proposed **Adaptive Directionally Weighted Sector Influence Zone (ADWSIZ) model**. 
 
-**Interactive App**: [Click here to launch the GEE App]((https://ee-l2892786691.projects.earthengine.app/view/adwsiz-vs-circle))
+**Interactive App**: [Click here to launch the GEE App](https://ee-l2892786691.projects.earthengine.app/view/adwsiz-vs-circle)
 
 ## Source Code
 The source code for the above functionalities is provided below, organized by section.
