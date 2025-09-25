@@ -22,32 +22,47 @@ All source code is provided at the end of the document.
 
 ### 1. LCZ Classification
 Annotated ground truth samples are uploaded to Google Earth Engine (GEE), and Landsat-8 imagery data is used to perform cloud and fog quality control filtering to obtain annual mean imagery. A random forest algorithm is employed to implement LCZ classification for the YRD region. The figure below shows the GEE operation interface and LCZ classification results.
+
 ![GEE Interface for LCZ Classification](image/1.png)
+
 **Figure 1**: GEE Interface for LCZ Classification
 
 ### 2. Influence Zone Raster Clipping and Landscape Pattern Index Calculation
 After exporting the LCZ classification raster, the influence zone's range and shape are clipped based on corresponding monitoring stations. For example, rasters are clipped for 179 stations as centers, using circular shapes with radii from 1000m to 6000m at 500m intervals, resulting in 179 × 12 = 2148 files. This process is implemented using a Python environment in VSCode.
 
+![LCZ Raster Clipped Centered on Stations with Different Distances and Shapes](image/2.png)
+
 **Figure 2**: LCZ Raster Clipped Centered on Stations with Different Distances and Shapes
 
 The clipped rasters are batch-processed in Fragstats 4.2-64 software, where selected landscape pattern indices are calculated. The figure below shows the Fragstats 4.2-64 interface for calculating landscape pattern indices.
+
+![Fragstats Interface for Landscape Pattern Index Calculation](image/3.png)
 
 **Figure 3**: Fragstats Interface for Landscape Pattern Index Calculation
 
 ### 3. Semivariogram Analysis
 Stratified sampling is performed on the original LCZ raster, followed by semivariogram and directional semivariogram analysis on the sampled rasters. This process is implemented in a Python environment in VSCode. The figure below shows the VSCode interface for this analysis.
 
+![ Python Environment for Semivariogram Analysis](image/4.png)
+
 **Figure 4**: Python Environment for Semivariogram Analysis
 
 ### 4. GWRR Implementation
 In a Python environment, GWRR modeling is conducted to compare influence zones at different distances. The figure below shows the GWRR modeling results for circular influence zones at various distances.
+
+![ GWRR Modeling Results for Circular Influence Zones at Different Distances](image/5.png)
 
 **Figure 5**: GWRR Modeling Results for Circular Influence Zones at Different Distances
 
 ### 5. ADWSIZ Implementation
 The net influence in different directions for each station is calculated based on the formulas in the paper. The sector radius is adjusted according to the equal-area principle and the optimal process scale radius. Adaptive shape influence zone raster files are generated using the clipping code from method 2, and corresponding landscape pattern indices are calculated to produce CSV files. These are then compared with the optimal process scale influence zone using the GWRR modeling approach from method 4.
 
+![ADWSIZ Influence Calculation and Raster File Generation Process](image/6.png)
+
 **Figure 6**: ADWSIZ Influence Calculation and Raster File Generation Process
+
+
+![ADWSIZ Influence and Raster File Results](image/7.png)
 
 **Figure 7**: ADWSIZ Influence and Raster File Results
 
