@@ -15,11 +15,11 @@ The framework integrates:
 
 ## Functional Description
 The software involves various programs, languages, and platforms, and is described according to the sequence of functional modules. The functional design follows the three-layer analytical framework proposed in the paper: static scale delineation, process scale optimization, and directional shape correction. It also includes LCZ classification and data preprocessing functions. The following sections correspond to five main components:
-1. LCZ Classification Implementation and Code
-2. Influence Zone Raster Clipping and Landscape Pattern Index Calculation
-3. Semivariogram Analysis Implementation and Code
-4. GWRR Model Implementation and Code
-5. ADWSIZ Implementation and Code
+1. LCZ Classification Implementation and Code. File:[LCZ classfication.js](code/LCZ classfication.js)
+2. Influence Zone Raster Clipping and Landscape Pattern Index Calculation. File:[code/clip zone.py](code/clip zone.py)
+3. Semivariogram Analysis Implementation and Code. File:[code/semivariogram.py](code/semivariogram.py)
+4. GWRR Model Implementation and Code. File:[code/GWRR.py](code/GWRR.py)
+5. ADWSIZ Implementation and Code. File:[code/ADWSIZ.py](code/ADWSIZ.py)
 
 All source code is provided at the end of the document.
 
@@ -70,7 +70,7 @@ The net influence in different directions for each station is calculated based o
 **Figure 7**: ADWSIZ Influence and Raster File Results
 
 ## Data
-1.**NO2 Data and landscape_metrics **: Annual means from 179 stations (2024), sourced from [China National Environmental Monitoring Center]((https://www.cnemc.cn)). After calculating the landscape pattern indices via raster clipping, they were merged into the station file[File Path: `data/station.shp`](data/station.shp)
+1.** NO2 Data and landscape_metrics **: Annual means from 179 stations (2024), sourced from [China National Environmental Monitoring Center]((https://www.cnemc.cn)). After calculating the landscape pattern indices via raster clipping, they were merged into the station file[`data/station.shp`](data/station.shp)
 
 2.**Landsat-8**:  Landsat-8 OLI, available from the U.S. Geological Survey (USGS), sourced from [Google Earth Engine (GEE)](https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C02_T1_L2)
 
