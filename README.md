@@ -69,6 +69,10 @@ The net influence in different directions for each station is calculated based o
 
 **Figure 7**: ADWSIZ Influence and Raster File Results
 
+## Data
+1.**NO2 Data**： Annual means from 179 stations (2024), sourced from [China National Environmental Monitoring Center]([url](https://www.cnemc.cn)). File Path: 'data/station.csv'
+2.**Local Climate Zone (LCZ) Classification**: High-accuracy LCZ maps (30 m spatial resolution) of the YRD urban agglomeration were derived from Landsat-8 OLI imagery. Source: Landsat-8 OLI, available from the U.S. Geological Survey (USGS).Access Point: [Google Earth Engine (GEE)](https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C02_T1_L2)
+
 ## Source Code
 The source code for the above functionalities is provided below, organized by section.
 
