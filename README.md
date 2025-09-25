@@ -1,14 +1,17 @@
-# Software Documentation: Exploring the Relationship Between Urban Landscape Patterns and NO2 Concentrations
+# Quantifying Anisotropic Impacts of LCZ Landscape Patterns on NO2 Variabilities in the Yangtze River Delta, China
 
-This document aims to deeply explore the complex relationship between urban landscape patterns and NO2 concentrations, and proposes an innovative three-layer optimization framework to achieve scientific decoupling and optimization of influence zones. Using the Yangtze River Delta (YRD) urban agglomeration as a case study, the software leverages Local Climate Zone (LCZ) classification data and NO2 data from national air quality monitoring stations to address limitations in existing studies, such as scale concept confusion and arbitrary definitions of influence zones.
+This repository contains the data and code accompanying the research: Quantifying Anisotropic Impacts of LCZ Landscape Patterns on NO2 Variabilities in the Yangtze River Delta, China
 
-## Core Functionality
-The software's core functionality is based on the following key technologies:
+## Methodology Overview
+The framework integrates:
 
 1. **LCZ Classification and Landscape Pattern Index Calculation**: Utilizes Landsat-8 imagery for high-precision LCZ classification and computes multi-scale landscape pattern indices to quantify urban morphological characteristics.
 2. **Semivariogram Analysis**: Scientifically determines the optimal representation scale (distance and shape) of static LCZ landscape patterns, providing a data-driven baseline for subsequent analysis.
 3. **Multi-Scale Geographically Weighted Ridge Regression (GWRR)**: Employs the GWRR model to identify the optimal process scale for explaining NO2 concentrations, effectively mitigating multicollinearity issues and revealing the spatial heterogeneity of landscape pattern impacts on NO2.
 4. **Adaptive Directional Weighted Sector Influence Zone (ADWSIZ) Optimization**: Introduces the ADWSIZ model based on GWRR coefficients to dynamically optimize the shape of influence zones, adapting to the spatial heterogeneity of landscape functions, thereby significantly improving model explanatory power.
+
+![An analytical framework for analyzing the spatial anisotropic impact of urban landscape patterns on $\text{NO}_2$ 
+  concentrations, integrating LCZ classification, multi-scale spatial modeling, and a shape-adaptive influence zone.](image/flow.png)
 
 ## Functional Description
 The software involves various programs, languages, and platforms, and is described according to the sequence of functional modules. The functional design follows the three-layer analytical framework proposed in the paper: static scale delineation, process scale optimization, and directional shape correction. It also includes LCZ classification and data preprocessing functions. The following sections correspond to five main components:
