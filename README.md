@@ -22,7 +22,7 @@ All source code is provided at the end of the document.
 
 ### 1. LCZ Classification
 Annotated ground truth samples are uploaded to Google Earth Engine (GEE), and Landsat-8 imagery data is used to perform cloud and fog quality control filtering to obtain annual mean imagery. A random forest algorithm is employed to implement LCZ classification for the YRD region. The figure below shows the GEE operation interface and LCZ classification results.
-
+![GEE Interface for LCZ Classification](image/1.png)
 **Figure 1**: GEE Interface for LCZ Classification
 
 ### 2. Influence Zone Raster Clipping and Landscape Pattern Index Calculation
