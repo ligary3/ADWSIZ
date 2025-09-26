@@ -15,7 +15,7 @@ The framework integrates:
 
 
 ## Data Source
-1.**NO2 Data and landscape_metrics**: Annual means from 179 stations (2024), sourced from [China National Environmental Monitoring Center]((https://www.cnemc.cn)). After calculating the landscape pattern indices via raster clipping, they were merged into the station file[`data/station.shp`](datass/station.shp)
+1.**NO2 Data and landscape_metrics**: Annual means from 179 stations (2024), sourced from [China National Environmental Monitoring Center]((https://www.cnemc.cn)). After calculating the landscape pattern indices via raster clipping, they were merged into the station file[`datas/station.shp`](datas/station.shp)
 
 2.**Landsat-8**:  Landsat-8 OLI, available from the U.S. Geological Survey (USGS), sourced from [Google Earth Engine (GEE)](https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C02_T1_L2)
 
