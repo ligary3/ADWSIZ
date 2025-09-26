@@ -78,5 +78,5 @@ We have published a public Google Earth Engine (GEE) app that serves as an inter
 
 **Interactive App**: [Click here to launch the GEE App](https://ee-l2892786691.projects.earthengine.app/view/adwsiz-vs-circle)
 
-[images/result1.png](images/result1.png)
-[images/result2.png](images/result2.png)
+![images/result1.png](images/result1.png)
+![images/result2.png](images/result2.png)
