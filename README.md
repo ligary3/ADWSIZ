@@ -21,13 +21,43 @@ The framework integrates:
 
 3.**Local Climate Zone (LCZ) Classification**: High-accuracy LCZ maps (30 m spatial resolution) of the YRD urban agglomeration were derived from Landsat-8 OLI imagery. File:[LCZ_yrd_30m.tif](https://drive.google.com/file/d/11588PKhp9D6a_Wma4iC9Tq2nytvb13We/view?usp=sharing)
 
+## Project Structure
+├── .gitignore          # Specifies intentionally untracked files to ignore
+├── LICENSE             # Project's software license
+├── README.md           # This readme file
+├── requirements.txt    # List of Python dependencies for the project
+│
+├── codes/              # Contains all the source code
+│   ├── ADWSIZ/
+│   │   └── ADWSIZ.py   # Implementation of the ADWSIZ model
+│   ├── Clip raster for landscape calculation/
+│   │   └── clipzone.py # Script for clipping raster data for landscape analysis
+│   ├── GWRR/
+│   │   └── GWRR.py     # Implementation of the GWRR model
+│   └── LCZ Classfication and analysis/
+│       ├── LCZclassfication.js     # Google Earth Engine script for LCZ classification
+│       └── semivariogram.py        # Script for semivariogram analysis
+│
+├── datas/              # Contains data used in the project
+│   ├── station.cpg     # Shapefile component (code page)
+│   ├── station.dbf     # Shapefile component (attribute data)
+│   ├── station.prj     # Shapefile component (projection information)
+│   ├── station.sbn     # Shapefile component (spatial index)
+│   ├── station.sbx     # Shapefile component (spatial index)
+│   ├── station.shp     # Shapefile component (main file with geometry)
+│   └── station.shx     # Shapefile component (shape index)
+│
+└── images/             # Contains images for documentation and visualization
+    ├── flow.png        # The flowchart of the project's technical methodology
+    ├── result1.png     # Screenshot of the GEE App interface or results
+    └── result2.png     # Another screenshot of the GEE App interface or results
   
 ## Step
 The workflow is broken down into five main steps, from initial data processing and classification to the final model construction and comparison. The programs, languages, and platforms used are detailed within each step.
 
 ### Step 1: Local Climate Zone (LCZ) Classification
 * **Platform**: Google Earth Engine (GEE)
-* **Code**: [codes/LCZ classfication.js](codes/LCZclassfication.js)
+* **Code**: [codes/LCZ Classfication and analysis/LCZ classfication.js](codes/LCZ Classfication and analysis/LCZclassfication.js)
 The first step is to generate an LCZ map for the study area. Ground truth samples are uploaded to GEE. We then process **Landsat-8 imagery**, applying cloud and fog filtering to create a clean annual mean composite. Using these samples and the processed imagery, a **random forest algorithm** is trained and applied to classify the Local Climate Zones for the entire Yangtze River Delta (YRD) region.
 
 
@@ -35,7 +65,7 @@ The first step is to generate an LCZ map for the study area. Ground truth sample
 
 ### Step 2: Delineating Influence Zones and Calculating Landscape Metrics
 * **Platforms**: Python (VSCode), Fragstats 4.2-64
-* **Code**: [codes/clip zone.py](codes/clipzone.py)
+* **Code**: [codes/Clip raster for landscape calculation/clip zone.py](codes/Clip raster for landscape calculation/clipzone.py)
 
 Next, we define and analyze the areas surrounding each monitoring station. The LCZ raster map from Step 1 is clipped to create multiple "influence zones" for each station. For instance, for each of the **179 stations**, we generate circular zones with radii increasing from 1000m to 6000m in 500m increments, resulting in 2,148 raster files. This clipping process is automated using a Python script.These clipped rasters are then batch-processed in **Fragstats 4.2** to calculate a suite of landscape pattern indices for each zone.
 
@@ -44,7 +74,7 @@ Next, we define and analyze the areas surrounding each monitoring station. The L
 
 ### Step 3: Semivariogram Analysis for Spatial Structure
 * **Platform**: Python (VSCode)
-* **Code**: [codes/semivariogram.py](codes/semivariogram.py)
+* **Code**: [codes/LCZ Classfication and analysis/semivariogram.py](codes/LCZ Classfication and analysis/semivariogram.py)
 
 To understand the spatial structure and directionality (anisotropy) of the landscape, we perform semivariogram analysis. A stratified sampling strategy is applied to the original LCZ raster. Both standard and directional semivariograms are then calculated on these samples using a Python environment to reveal patterns in spatial autocorrelation.
 
@@ -54,7 +84,7 @@ To understand the spatial structure and directionality (anisotropy) of the lands
 
 ### Step 4: Geographically Weighted Ridge Regression (GWRR) Modeling
 * **Platform**: Python
-* **Code**: [codes/GWRR.py](codes/GWRR.py)
+* **Code**: [codes/GWRR/GWRR.py](codes/GWRR/GWRR.py)
 
 With the landscape metrics for each influence zone calculated, we build GWRR models. This step allows us to explore the relationship between landscape patterns and the variable of interest (e.g., air pollution) at a local level. By running the model for each of the circular zones created in Step 2, we can identify the optimal "process scale"—the radius at which the landscape has the strongest influence.
 
@@ -63,7 +93,7 @@ With the landscape metrics for each influence zone calculated, we build GWRR mod
 
 ### Step 5: Constructing the Anisotropy-Directional Weighted Source Influence Zone (ADWSIZ)
 * **Platforms**: Python, Fragstats 4.2-64
-* **Code**: [codes/ADWSIZ.py](codes/ADWSIZ.py)
+* **Code**: [codes/ADWSIZ/ADWSIZ.py](codes/ADWSIZ/ADWSIZ.py)
 
 The final step is to create a more realistic, adaptive influence zone that accounts for directional effects. Based on the formulas in the paper, we calculate the net influence in eight different directions for each station. The radius of each directional sector is then adjusted based on this influence and the optimal process scale determined in Step 4, while maintaining an equal total area.
 
