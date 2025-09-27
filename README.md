@@ -86,7 +86,7 @@ To understand the spatial structure and directionality (anisotropy) of the lands
 
 ### Step 4: Geographically Weighted Ridge Regression (GWRR) Modeling
 * **Platform**: Python
-* **Code**: [codes/GWRR/GWRR.py](codes/GWRR/GWRR.py)
+* **Code**: [GWRR.py](codes/GWRR/GWRR.py)
 
 With the landscape metrics for each influence zone calculated, we build GWRR models. This step allows us to explore the relationship between landscape patterns and the variable of interest (e.g., air pollution) at a local level. By running the model for each of the circular zones created in Step 2, we can identify the optimal "process scale"—the radius at which the landscape has the strongest influence.
 
@@ -95,7 +95,7 @@ With the landscape metrics for each influence zone calculated, we build GWRR mod
 
 ### Step 5: Constructing the Anisotropy-Directional Weighted Source Influence Zone (ADWSIZ)
 * **Platforms**: Python, Fragstats 4.2-64
-* **Code**: [codes/ADWSIZ/ADWSIZ.py](codes/ADWSIZ/ADWSIZ.py)
+* **Code**: [ADWSIZ.py](codes/ADWSIZ/ADWSIZ.py)
 
 The final step is to create a more realistic, adaptive influence zone that accounts for directional effects. Based on the formulas in the paper, we calculate the net influence in eight different directions for each station. The radius of each directional sector is then adjusted based on this influence and the optimal process scale determined in Step 4, while maintaining an equal total area.
 
