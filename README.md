@@ -35,8 +35,8 @@ The framework integrates:
 │   │   └── clipzone.py # Script for clipping raster data for landscape analysis
 │   ├── GWRR/
 │   │   └── GWRR.py     # Implementation of the GWRR model
-│   └── LCZ Classfication and analysis/
-│       ├── LCZclassfication.js     # Google Earth Engine script for LCZ classification
+│   └── LCZ Classification and analysis/
+│       ├── LCZclassification.js     # Google Earth Engine script for LCZ classification
 │       └── semivariogram.py        # Script for semivariogram analysis
 │
 ├── datas/              # Contains data used in the project
@@ -58,7 +58,8 @@ The workflow is broken down into five main steps, from initial data processing a
 
 ### Step 1: Local Climate Zone (LCZ) Classification
 * **Platform**: Google Earth Engine (GEE)
-* **Code**: [codes/LCZ Classfication and analysis/LCZ classfication.js](codes/LCZ Classfication and analysis/LCZclassfication.js)
+* **Code**: [LCZ classification.js](codes/LCZ%20Classification%20and%20analysis/LCZclassification.js)
+
 The first step is to generate an LCZ map for the study area. Ground truth samples are uploaded to GEE. We then process **Landsat-8 imagery**, applying cloud and fog filtering to create a clean annual mean composite. Using these samples and the processed imagery, a **random forest algorithm** is trained and applied to classify the Local Climate Zones for the entire Yangtze River Delta (YRD) region.
 
 
@@ -66,7 +67,7 @@ The first step is to generate an LCZ map for the study area. Ground truth sample
 
 ### Step 2: Delineating Influence Zones and Calculating Landscape Metrics
 * **Platforms**: Python (VSCode), Fragstats 4.2-64
-* **Code**: [codes/Clip raster for landscape calculation/clip zone.py](codes/Clip raster for landscape calculation/clipzone.py)
+* **Code**: [clip zone.py](codes/Clip%20raster%20for%20landscape%20calculation/clipzone.py)
 
 Next, we define and analyze the areas surrounding each monitoring station. The LCZ raster map from Step 1 is clipped to create multiple "influence zones" for each station. For instance, for each of the **179 stations**, we generate circular zones with radii increasing from 1000m to 6000m in 500m increments, resulting in 2,148 raster files. This clipping process is automated using a Python script.These clipped rasters are then batch-processed in **Fragstats 4.2** to calculate a suite of landscape pattern indices for each zone.
 
@@ -75,7 +76,7 @@ Next, we define and analyze the areas surrounding each monitoring station. The L
 
 ### Step 3: Semivariogram Analysis for Spatial Structure
 * **Platform**: Python (VSCode)
-* **Code**: [codes/LCZ Classfication and analysis/semivariogram.py](codes/LCZ Classfication and analysis/semivariogram.py)
+* **Code**: [semivariogram.py](codes/LCZ%20Classification%20and%20analysis/semivariogram.py)
 
 To understand the spatial structure and directionality (anisotropy) of the landscape, we perform semivariogram analysis. A stratified sampling strategy is applied to the original LCZ raster. Both standard and directional semivariograms are then calculated on these samples using a Python environment to reveal patterns in spatial autocorrelation.
 
