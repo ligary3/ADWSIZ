@@ -22,6 +22,7 @@ The framework integrates:
 3.**Local Climate Zone (LCZ) Classification**: High-accuracy LCZ maps (30 m spatial resolution) of the YRD urban agglomeration were derived from Landsat-8 OLI imagery. File:[LCZ_yrd_30m.tif](https://drive.google.com/file/d/11588PKhp9D6a_Wma4iC9Tq2nytvb13We/view?usp=sharing)
 
 ## Project Structure
+```
 ├── .gitignore          # Specifies intentionally untracked files to ignore
 ├── LICENSE             # Project's software license
 ├── README.md           # This readme file
@@ -51,7 +52,7 @@ The framework integrates:
     ├── flow.png        # The flowchart of the project's technical methodology
     ├── result1.png     # Screenshot of the GEE App interface or results
     └── result2.png     # Another screenshot of the GEE App interface or results
-  
+```
 ## Step
 The workflow is broken down into five main steps, from initial data processing and classification to the final model construction and comparison. The programs, languages, and platforms used are detailed within each step.
 
